@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#E84C30</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#F7F7F5</item>
+    </style>
+    <string name="control_description">Allow your explicitly paired Mac to tap, swipe, type and navigate this phone while it is unlocked. No input is accepted from an unpaired Mac. You can disable control here at any time.</string>
+</resources>
