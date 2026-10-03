@@ -347,6 +347,7 @@ struct DiscoveredPhone: Identifiable {
                 do { try store.save(devices) } catch { transferMessage = error.localizedDescription }
             }
             let first = !connected
+            let projectionStarted = !projection && (json["projection"] as? Bool == true)
             if first { noteConnectionEvent("authenticated") }
             connectionDeadline?.invalidate(); connectionDeadline = nil
             connected = true; attempt = 0
@@ -355,7 +356,10 @@ struct DiscoveredPhone: Identifiable {
             media.supportsLivePointer = control && (json["livePointer"] as? Bool == true)
             state = projection ? "Connected" : "Ready to share"
             detail = projection ? (control ? "Encrypted connection" : "Enable control in the phone companion.") : "Tap Start sharing on your Redmi and approve the Android screen-sharing dialog."
-            if first { startHeartbeat(); setQuality() }
+            if first { startHeartbeat() }
+            // A new owner-approved capture can begin on an already authenticated connection.
+            // Reapply the saved profile once; subsequent ready messages must not reconfigure it.
+            if first || projectionStarted { setQuality() }
         case "captureStopped": noteConnectionEvent("captureStopped"); projection = false; media.reset(); state = "Sharing stopped"; detail = json["message"] as? String ?? "Approve a new screen-sharing session on your Redmi."
         case "error": failed(json["message"] as? String ?? "The phone refused the connection.", fatal:true)
         case "pong":
