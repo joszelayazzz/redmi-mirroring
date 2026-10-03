@@ -1,0 +1,23 @@
+# Local binaries and generated build caches
+/build/
+/.build-work/
+**/.build/
+**/.swiftpm/
+**/__pycache__/
+*.pyc
+.DS_Store
+
+# Never publish pairing invitations, signing material, or local credentials
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.pem
+*.key
+*.cer
+*.der
+.env
+.env.*
+password.txt
+/work/
+
