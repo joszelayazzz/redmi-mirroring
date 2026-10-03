@@ -2,6 +2,8 @@
 
 Native Swift/AppKit/SwiftUI mirroring for a Redmi phone, with a Kotlin Android companion. Real LAN pairing, portrait/landscape streaming, live mouse dragging, keyboard/paste, audio, file transfer, and reconnect have been exercised on a Redmi 14C. See [TEST-REPORT.md](TEST-REPORT.md) for the distinction between physical-device results, component fixtures, and unverified features.
 
+Mac 0.1.1 preserves the selected quality when a new owner-approved capture starts on an already paired connection. A real stop/start test retained Responsive at 560 × 1280 with screen, control and audio active. The Android APK is unchanged.
+
 ## Downloads
 
 Get the Apple Silicon Mac app ZIP and Android companion APK from [GitHub Releases](https://github.com/joszelayazzz/redmi-mirroring/releases). This is an early development release; review the platform limits and test report before use.
